@@ -1,6 +1,10 @@
 package com.moraism.courses_api.controllers;
 
 import com.moraism.courses_api.dto.CreateCourseRequestDTO;
+import com.moraism.courses_api.model.Course;
+import com.moraism.courses_api.services.CourseService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,9 +14,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/cursos")
 public class CoursesController {
 
-    // chamada para um service
-    @PostMapping
-    private void create(@RequestBody CreateCourseRequestDTO createCourseRequestDTO) {
+    @Autowired
+    private CourseService courseService;
 
+    @PostMapping
+    private ResponseEntity<Object> create(@RequestBody CreateCourseRequestDTO createCourseRequestDTO) {
+        try {
+            var course = Course.builder()
+                    .name(createCourseRequestDTO.name())
+                    .category(createCourseRequestDTO.category())
+                    .build();
+
+            var newCourse = courseService.createCourse(course);
+            return ResponseEntity.ok().body(newCourse);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 }
