@@ -1,9 +1,6 @@
 package com.moraism.courses_api.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.UUID;
 
@@ -19,5 +16,9 @@ public class Lesson {
     private String url;
 
     @Column(name = "duration")
-    private Number durationInMinutes;
+    private Integer durationInMinutes;
+
+    @ManyToOne()
+    @JoinColumn(name = "module_id")
+    private Module module;
 }

@@ -19,16 +19,6 @@ public class CoursesController {
 
     @PostMapping
     private ResponseEntity<Object> create(@RequestBody CreateCourseRequestDTO createCourseRequestDTO) {
-        try {
-            var course = Course.builder()
-                    .name(createCourseRequestDTO.name())
-                    .category(createCourseRequestDTO.category())
-                    .build();
 
-            var newCourse = courseService.createCourse(course);
-            return ResponseEntity.ok().body(newCourse);
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
-        }
     }
 }

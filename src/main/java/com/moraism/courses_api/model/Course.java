@@ -1,10 +1,7 @@
 package com.moraism.courses_api.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -12,11 +9,8 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
-@Table(name = "curso")
+@Table(name = "course")
 @Data
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
 public class Course {
 
     @Id()
@@ -26,6 +20,7 @@ public class Course {
     private String title;
     private String description;
     private String level;
+
     private Boolean active;
 
     @Column(name = "created_at", updatable = false)

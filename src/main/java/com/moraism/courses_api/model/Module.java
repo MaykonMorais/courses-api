@@ -1,10 +1,8 @@
 package com.moraism.courses_api.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.UUID;
 
 @Entity
@@ -17,4 +15,7 @@ public class Module {
     private String title;
 
     private Number order;
+
+    @OneToMany(mappedBy = "module")
+    private ArrayList<Lesson> lessons;
 }
