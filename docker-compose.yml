@@ -4,8 +4,8 @@ services:
     container_name: postgres
     environment:
       POSTGRES_DB: ${DATABASE_NAME}
-      POSTGRES_USER: ${DATABASE_DEFAULT_USER}
-      POSTGRES_PASSWORD: ${DATABASE_ROOT_PASSWORD}
+      POSTGRES_USER: ${DATABASE_USER}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
     ports:
       - "5432:5432"
     volumes:

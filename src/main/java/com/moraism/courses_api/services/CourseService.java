@@ -12,13 +12,7 @@ public class CourseService {
     @Autowired
     private CourseRepository courseRepository;
 
-    public CourseResponseDTO createCourse(Course newCourse) {
-        var course  = courseRepository.save(newCourse);
+    public void createCourse(Course newCourse) {
 
-        return CourseResponseDTO.builder()
-                .id(course.getId())
-                .name(course.getName())
-                .category(course.getCategory())
-                .build();
     }
 }
