@@ -4,12 +4,12 @@ import jakarta.validation.constraints.NotBlank;
 
 public record CreateCourseRequestDTO(
         @NotBlank(message = "Campo obrigatório")
-        String name,
+        String title,
 
         @NotBlank(message = "Campo obrigatório")
-        String category,
+        String description,
 
         @NotBlank(message = "Campo obrigatório")
-        String professor
+        String level
 ) {
 }

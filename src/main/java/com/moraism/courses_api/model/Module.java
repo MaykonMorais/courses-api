@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 @Entity
+@Table(name = "module")
 public class Module {
 
     @Id
@@ -14,7 +15,8 @@ public class Module {
 
     private String title;
 
-    private Number order;
+    @Column(name = "order_index")
+    private Integer orderIndex;
 
     @OneToMany(mappedBy = "module")
     private ArrayList<Lesson> lessons;
