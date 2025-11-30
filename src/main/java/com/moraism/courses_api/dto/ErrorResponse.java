@@ -2,6 +2,7 @@ package com.moraism.courses_api.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import org.springframework.http.HttpStatus;
 
 import java.util.List;
 
@@ -11,4 +12,8 @@ public class ErrorResponse {
     private Integer status;
     private String message;
     private List<ErrorField> errorFields;
+
+    public static ErrorResponse conflict(String message) {
+        return new ErrorResponse(HttpStatus.CONFLICT.value(), message, List.of());
+    }
 }

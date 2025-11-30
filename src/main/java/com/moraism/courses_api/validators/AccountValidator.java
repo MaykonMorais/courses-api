@@ -13,9 +13,8 @@ public class AccountValidator {
     private AccountRepository accountRepository;
 
     public void validateNewAccount(Account account) {
-        accountRepository.findByEmail(account.getEmail()).orElseThrow(() -> {
+        accountRepository.findByEmail(account.getEmail()).ifPresent(registeredAccount -> {
             throw new UserAlreadyExistsException("Email já existente");
         });
     }
-
 }
