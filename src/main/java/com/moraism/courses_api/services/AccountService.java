@@ -5,6 +5,7 @@ import com.moraism.courses_api.dto.CreateAccountRequestDTO;
 import com.moraism.courses_api.model.Account;
 import com.moraism.courses_api.repositories.AccountRepository;
 import com.moraism.courses_api.validators.AccountValidator;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
