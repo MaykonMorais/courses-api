@@ -23,8 +23,6 @@ public class Course {
 
     private Boolean active;
 
-
-
     @Column(name = "created_at", updatable = false)
     @CreationTimestamp
     private LocalDateTime createdAt;

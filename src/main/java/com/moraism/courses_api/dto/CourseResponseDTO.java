@@ -1,17 +1,11 @@
 package com.moraism.courses_api.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
-
+import lombok.Data;
 import java.util.UUID;
 
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
+@Data
 public class CourseResponseDTO {
     private UUID id;
-    private String name;
-    private String category;
-    private String active;
+    private String title;
+    private String description;
 }
